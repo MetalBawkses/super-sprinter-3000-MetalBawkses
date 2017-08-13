@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Super Sprinter 3000</title>
+        <style>
+                table, th, td {
+                    border: 1px solid black;
+                    border-collapse: collapse;
+                }
+                th, td {
+                    padding: 15px;
+                }                
+        </style>
+    </head>
+    <body>
+        <img src="images/pic_mountain.jpg" alt="Mountain View">
+        <form action="/story">
+            <input type="submit" value="Add new User Story" />
+        </form>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Story Title</th>
+                <th>User Story</th>
+                <th>Acceptance criteria</th>
+                <th>Business Value</th>
+                <th>Estimation (h)</th>
+                <th>Status</th>  
+                <th>Action</th>              
+            </tr>
+            
+            {% for row in data %}
+                <TR>
+
+                {% for element in row %}
+                
+                    <TD>{{element}}</TD>
+                
+                {% endfor %}
+                    <TD><img src="pic_mountain.jpg"></TD>
+                </TR>
+            {% endfor %}
+        </table>
+
+        
+        <a href="/story"></a>
+        <a href="/story/25">Edit note25</a>
+    </body>
+</html>

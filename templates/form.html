@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Super Sprinter 3000 - Add new Story</title>
+    </head>
+    <body>
+        <h2>User Story manager - Add new Story</h2>
+        <form action="/save-note" method="post">
+
+            <p>Story Title<br><textarea name="story_title" rows="1" cols="80">{{ story_title }}</textarea></p>
+            <p>User Story<br><textarea name="user_story" rows="1" cols="80">{{ user_story }}</textarea></p>
+            <p>Acceptance criteria<br><textarea name="acc_crit" rows="4" cols="80">{{ acc_crit }}</textarea></p>
+            <p>Business Value<br><input name="bus_value" type="number" step="100" min="100" max="1500"></p>
+            <p>Estimation (h)<br><input name="est" type="number" step="0.5" min="0.5" max="40"></p>
+            <p>Status<br><select name="status">
+                <option value="Planning">Planning</option>
+                <option value="TODO">TODO</option>
+                <option value="In Progress" selected>In Progress</option>
+                <option value="Review">Review</option>
+                <option value="Done">Done</option>
+            </select></p>
+            
+            
+            <button type="submit">Create</button>
+        </form>
+    </body>
+</html>
