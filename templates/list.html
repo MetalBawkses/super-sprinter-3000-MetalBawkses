@@ -39,10 +39,10 @@
                 
                 {% endfor %}
                     <TD>        
-                        <form action="/story/{{row.0}}">
+                        <form action="/story/{{row.0}}" method="post">
                             <input type="image" src="https://d30y9cdsu7xlg0.cloudfront.net/png/18911-200.png" title="Edit" style="width:28px;height:28px;"/>
                         </form>
-                        <form action="/story/{{row.0}}">
+                        <form action="/delete/{{row.0}}" method="post">
                             <input type="image" src="http://icons.iconarchive.com/icons/iconshock/vista-general/256/trash-icon.png" title="Delete" style="width:28px;height:28px;"/>
                         </form>
                     </TD>

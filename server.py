@@ -21,18 +21,36 @@ def route_edit():
     return render_template('form.html', data=None, button="Create")
 
 
-@app.route('/story/<int:post_id>')
+@app.route('/story/<int:post_id>', methods=['POST'])
 def show_post(post_id):
     csv_data = []
     with open("data.csv", "r") as csv_file:
         table = csv.reader(csv_file)
         for row in table:
             csv_data.append(row)
-    # print(csv_data)
-    print(post_id)
-
     return render_template('form.html', data=row, button="Update", post_id=post_id)
 
+
+@app.route('/delete/<int:post_id>', methods=['POST'])
+def delete(post_id):
+    result = []
+    with open("data.csv", "r") as csv_file:
+        table = csv.reader(csv_file, delimiter=',')
+        for row in table:
+            result.append(row)
+    print(result)
+    with open("data.csv", "w") as filee:
+        for record in result:
+            if int(record[0]) != post_id:
+                if int(record[0]) > post_id:
+                    record[0] = str(int(record[0]) - 1)
+                print(record[0])
+                row = ','.join(record)
+                filee.write(row + "\n")
+    with open("data.csv", mode='r') as data:
+        reader = csv.reader(data, delimiter=',')
+        table = list(reader)
+    return render_template('list.html', data=table)
 
 @app.route('/save-note', methods=['POST'])
 def route_save():
@@ -71,7 +89,7 @@ def route_save():
         with open("data.csv", "a", newline='') as csv_file:
             writer = csv.writer(csv_file, delimiter=',')
             writer.writerow(values)
-    result=[]
+    result = []
     return redirect('/')
 
 

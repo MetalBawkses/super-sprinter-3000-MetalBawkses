@@ -1,11 +1,31 @@
 import csv
-result = [['1', '4241241aaa', '21414214', '412412412', '500', '0.5', 'Planning'], ['2', '44', '44', '44', '100', '0.5', 'Planning'], [
-    '3', 'dsada', 'wrar', 'awrawraw', '100', '0.5', 'Planning'], ['4', '4241241', '21414214', '412412412', '500', '0.5', 'Planning']]
 
-with open("data.csv", "w") as filee:
-    for record in result:
-        row = ','.join(record)
-        filee.write(row + "\n")
+
+def delete(post_id):
+    result = []
+    with open("data.csv", "r") as csv_file:
+        table = csv.reader(csv_file, delimiter=',')
+        for row in table:
+            result.append(row)
+    print(result)
+    with open("data.csv", "w") as filee:
+        for record in result:
+            if int(record[0]) != post_id:
+                if int(record[0]) > post_id:
+                    record[0] = str(int(record[0])-1)      
+                print(record[0])          
+                row = ','.join(record)
+                filee.write(row + "\n")
+
+
+delete(7)
+# result = [['1', '4241241aaa', '21414214', '412412412', '500', '0.5', 'Planning'], ['2', '44', '44', '44', '100', '0.5', 'Planning'], [
+#     '3', 'dsada', 'wrar', 'awrawraw', '100', '0.5', 'Planning'], ['4', '4241241', '21414214', '412412412', '500', '0.5', 'Planning']]
+
+# with open("data.csv", "w") as filee:
+#     for record in result:
+#         row = ','.join(record)
+#         filee.write(row + "\n")
 # from collections import Counter
 # from operator import itemgetter
 # from itertools import count
