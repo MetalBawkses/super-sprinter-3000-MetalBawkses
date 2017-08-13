@@ -1,11 +1,11 @@
 import csv
-values = ['22', '22', '22', '100', '21.5', 'in_progress']
+result = [['1', '4241241aaa', '21414214', '412412412', '500', '0.5', 'Planning'], ['2', '44', '44', '44', '100', '0.5', 'Planning'], [
+    '3', 'dsada', 'wrar', 'awrawraw', '100', '0.5', 'Planning'], ['4', '4241241', '21414214', '412412412', '500', '0.5', 'Planning']]
 
-with open("data.csv", "a",  newline='') as csv_file:
-    writer = csv.writer(csv_file, delimiter=',')
-    writer.writerow(values)
-    writer.writerow(values)
-
+with open("data.csv", "w") as filee:
+    for record in result:
+        row = ','.join(record)
+        filee.write(row + "\n")
 # from collections import Counter
 # from operator import itemgetter
 # from itertools import count

@@ -14,7 +14,7 @@
         </style>
     </head>
     <body>
-        <img src="images/pic_mountain.jpg" alt="Mountain View">
+        
         <form action="/story">
             <input type="submit" value="Add new User Story" />
         </form>
@@ -38,13 +38,18 @@
                     <TD>{{element}}</TD>
                 
                 {% endfor %}
-                    <TD><img src="pic_mountain.jpg"></TD>
+                    <TD>        
+                        <form action="/story/{{row.0}}">
+                            <input type="image" src="https://d30y9cdsu7xlg0.cloudfront.net/png/18911-200.png" title="Edit" style="width:28px;height:28px;"/>
+                        </form>
+                        <form action="/story/{{row.0}}">
+                            <input type="image" src="http://icons.iconarchive.com/icons/iconshock/vista-general/256/trash-icon.png" title="Delete" style="width:28px;height:28px;"/>
+                        </form>
+                    </TD>
                 </TR>
             {% endfor %}
         </table>
 
         
-        <a href="/story"></a>
-        <a href="/story/25">Edit note25</a>
     </body>
 </html>
