@@ -21,17 +21,18 @@ def route_edit():
     return render_template('form.html', data=None, button="Create")
 
 
-@app.route('/story/<int:post_id>', methods=['POST'])
+@app.route('/story/<int:post_id>')
 def show_post(post_id):
+    print(post_id)
     csv_data = []
     with open("data.csv", "r") as csv_file:
         table = csv.reader(csv_file)
         for row in table:
             csv_data.append(row)
-    return render_template('form.html', data=row, button="Update", post_id=post_id)
+    return render_template('form.html', data=csv_data[post_id-1], button="Update", post_id=post_id)
 
 
-@app.route('/delete/<int:post_id>', methods=['POST'])
+@app.route('/delete/<int:post_id>')
 def delete(post_id):
     result = []
     with open("data.csv", "r") as csv_file:
